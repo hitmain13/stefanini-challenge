@@ -178,8 +178,6 @@ stefanini/
 │   │   └── api.ts           # Cliente da API
 │   └── types/
 │       └── product.ts       # Tipos TypeScript
-│
-├── test-api.ps1             # Script de testes
 └── README.md
 ```
 
