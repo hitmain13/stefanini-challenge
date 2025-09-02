@@ -106,6 +106,7 @@ O frontend estará rodando em `http://localhost:3001`
 - `GET /api/cart` - Busca carrinho atual
 - `POST /api/cart/add` - Adiciona produto ao carrinho
 - `DELETE /api/cart/:productId` - Remove produto do carrinho
+- `DELETE /api/cart/clear` - Esvazia o carrinho
 
 ### Health Check
 - `GET /health-check` - Verifica se a API está funcionando
@@ -116,40 +117,46 @@ O frontend estará rodando em `http://localhost:3001`
 ```bash
 # Health check
 curl http://localhost:3000/health-check
+```
 
 # Listar produtos
+```
 curl http://localhost:3000/api/products
-/api/products
-/api/products/:id
-/api/products
-/api/cart/add
-/api/cart
-/api/cart/item/:itemId
+```
 
 # Criar produto
+```
 curl -X POST http://localhost:3000/api/products \
   -H "Content-Type: application/json" \
   -d '{"name":"iPhone 15","description":"Smartphone Apple","price":4999.99,"priceSale":4499.99}'
+```
 
 # Buscar produto específico
+```
 curl http://localhost:3000/api/products/{ID_DO_PRODUTO}
+```
 
 # Ver carrinho
+```
 curl http://localhost:3000/api/cart
+```
 
 # Adicionar ao carrinho
+```
 curl -X POST http://localhost:3000/api/cart/add \
   -H "Content-Type: application/json" \
   -d '{"productId":"{ID_DO_PRODUTO}","quantity":2}'
 ```
 
 # Excluir produto do carrinho
+```
 curl -X POST http://localhost:3000/api/cart/item/:itemId \
   -H "Content-Type: application/json" \
   -d '{"productId":"{ID_DO_PRODUTO}"}'
 ```
 
 # Esvaziar carrinho
+```
 curl -X DELETE http://localhost:3000/api/cart/clear \
   -H "Content-Type: application/json" \
 ```
