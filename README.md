@@ -112,12 +112,6 @@ O frontend estará rodando em `http://localhost:3001`
 
 ## 🧪 Testando a API
 
-### Usar o script PowerShell (Windows)
-```powershell
-# Execute o script de testes
-powershell -ExecutionPolicy Bypass -File ./test-api.ps1
-```
-
 ### Testes manuais com curl
 ```bash
 # Health check
@@ -125,6 +119,12 @@ curl http://localhost:3000/health-check
 
 # Listar produtos
 curl http://localhost:3000/api/products
+/api/products
+/api/products/:id
+/api/products
+/api/cart/add
+/api/cart
+/api/cart/item/:itemId
 
 # Criar produto
 curl -X POST http://localhost:3000/api/products \
@@ -142,6 +142,18 @@ curl -X POST http://localhost:3000/api/cart/add \
   -H "Content-Type: application/json" \
   -d '{"productId":"{ID_DO_PRODUTO}","quantity":2}'
 ```
+
+# Excluir produto do carrinho
+curl -X POST http://localhost:3000/api/cart/item/:itemId \
+  -H "Content-Type: application/json" \
+  -d '{"productId":"{ID_DO_PRODUTO}"}'
+```
+
+# Esvaziar carrinho
+curl -X DELETE http://localhost:3000/api/cart/clear \
+  -H "Content-Type: application/json" \
+```
+
 
 ## 🏗️ Estrutura do Projeto
 
